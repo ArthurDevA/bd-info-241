@@ -1,0 +1,69 @@
+@startuml
+
+entity Estado  {
+  + id (PK)
+  --
+  nome String
+}
+
+entity MesoRegiao  {
+  + id (PK)
+  --
+  nome String
+  # estado_id (FK)
+}
+
+entity MicroRegiao {
+  + id (PK)
+  --
+  nome String
+  # mesoregiao_id  (FK)
+  
+}
+
+entity Municipio {
+  + id (PK)
+  --
+  nome String
+  # microregiao_id (FK)
+  
+}
+
+entity IFCampus {
+  + id (PK)
+  --
+  nome String
+  endereco String
+  longitude Float
+  latitude  Float
+  # municipio_id (FK)
+}
+
+entity EscolaCampo{
+  + id (PK)
+  --
+  nome String
+  endereco String
+  longitude Float
+  latitude  Float
+  # municipio_id (FK)
+}
+
+entity Assentamento {
+  + id (PK)
+  --
+  nome String
+  endereco String
+  longitude Float
+  latitude  Float
+  # municipio_id (FK)
+}
+  
+Estado -right-{ MesoRegiao
+MesoRegiao -right-{ MicroRegiao
+MicroRegiao -right-{ Municipio
+Municipio -right-o{ IFCampus
+Municipio -right-o{ EscolaCampo
+Municipio -right-o{ Assentamento  
+  
+@enduml
