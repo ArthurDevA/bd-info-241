@@ -1,4 +1,7 @@
+# Atividade-03
+
 ## Arquivo SQL gerado pelo aplicativo DB Browser (SQLite).
+
 ### Projeto Geo Localização
 ### Essa atividade será realizada em equipes. Será tomado como referencia o site https://pt.wikipedia.org/wiki/Lista_de_mesorregi%C3%B5es_e_microrregi%C3%B5es_do_Cear%C3%A1
 ### Nele estão contidos as mesorregiões e microrregiões do Estado do Ceará e o nome dos seus respectivos municipios. Esse dados estão coerentes com a classificação do IBGE.
