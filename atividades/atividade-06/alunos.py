@@ -12,7 +12,7 @@ def idin(id):
     return (id,) in ids
 
 @app.post("/criar_aluno/")
-def criar_aluno(aluno_nome: str,  endereco: str = None, id: int = None):
+def criar_aluno(id: int = None, aluno_nome: str = None,  endereco: str = None):
     if not idin(id):
         conn = sqlite3.connect('dbalunos.db')
         cursor = conn.cursor()
@@ -49,6 +49,9 @@ def listar_um_aluno(id: int):
 @app.put("/atualizar_aluno/{id}")
 def atualizar_aluno(id: int, novo_id: int = None, aluno_nome: str = None,  endereco: str = None):
     if not idin(novo_id):
+        if novo_id == None:
+            novo_id = id
+        
         conn = sqlite3.connect('dbalunos.db')
         cursor = conn.cursor()
         cursor.execute('''
