@@ -48,7 +48,7 @@ def listar_um_aluno(id: int):
 
 @app.put("/atualizar_aluno/{id}")
 def atualizar_aluno(id: int, novo_id: int = None, aluno_nome: str = None,  endereco: str = None):
-    if novo_id == None or not idin(novo_id):
+    if not idin(novo_id):
         conn = sqlite3.connect('dbalunos.db')
         cursor = conn.cursor()
         cursor.execute('''
