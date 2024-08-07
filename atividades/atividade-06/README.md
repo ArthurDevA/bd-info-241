@@ -6,11 +6,11 @@
 ### 1) Crie um banco de dados SQLITE3 com o nome dbalunos.db.
 
 ### 2) Crie uma entidade aluno que será persistida em uma tabela TB_ALUNO com os seguintes campos:
-```
-id chave primária do tipo inteiro com autoincremento;
-aluno_nome do tipo string com tamanho 50;
-endereço do tipo string com tamanho 100;
-```
+
+#### id chave primária do tipo inteiro com autoincremento;
+#### aluno_nome do tipo string com tamanho 50;
+#### endereço do tipo string com tamanho 100;
+
 ### 3) Crie os seguintes endpoints FASTAPI abaixo descritos: 
 #### a) criar_aluno grava dados de um objeto aluno na tabela TB_ALUNO;
 #### b) listar_alunos ler todos os registros da tabela TB_ALUNO; 
