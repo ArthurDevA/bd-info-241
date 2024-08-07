@@ -23,7 +23,7 @@ def criar_aluno(aluno_nome: str,  endereco: str = None, id: int = None):
         conn.close()
         return {"id": cursor.lastrowid, "aluno_nome": aluno_nome, "endereco": endereco}
     else:
-        raise HTTPException(status_code=404, detail="Já existe um aluno com este id")
+        raise HTTPException(status_code=409, detail="Já existe um aluno com este id")
 
 @app.get("/listar_alunos/")
 def listar_alunos():
@@ -60,7 +60,7 @@ def atualizar_aluno(id: int, novo_id: int = None, aluno_nome: str = None,  ender
             raise HTTPException(status_code=404, detail="Aluno não encontrado")
         return {"id": novo_id, "aluno_nome": aluno_nome, "endereco": endereco}
     else:
-        raise HTTPException(status_code=404, detail="Já existe um aluno com este id")
+        raise HTTPException(status_code=409, detail="Já existe um aluno com este id")
 
 @app.delete("/excluir_aluno/{id}")
 def excluir_aluno(id: int):
