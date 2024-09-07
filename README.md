@@ -1,3 +1,2 @@
-# Atividade-08
-### Usar o tutorial em https://www.youtube.com/watch?v=feGY977Tp-4
-### para instalar o LAMP no Docker.
+# bd-info-241
+Atividades e exercícios da disciplina de BD 2024.1
