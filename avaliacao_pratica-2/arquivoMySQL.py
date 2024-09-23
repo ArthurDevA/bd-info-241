@@ -107,18 +107,5 @@ for matricula in matriculas:
 
 conn.commit()
 
-
-cursor.execute("""
-    SELECT A.nome_aluno, D.nome_disciplina, M.aprovado_SN
-    FROM TB_MATRICULA M
-    JOIN TB_ALUNO A ON M.id_aluno = A.id_aluno
-    JOIN TB_DISCIPLINA D ON M.id_disciplina = D.id_disciplina
-""")
-matriculas = cursor.fetchall()
-
-print()
-for matricula in matriculas:
-    print(matricula)
-
 cursor.close()
 conn.close()

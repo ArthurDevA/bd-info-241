@@ -21,8 +21,8 @@ cursor.execute("""
 matriculas = cursor.fetchall()
 tipoR = "Aprovado por Média"
 
-print("\nAlunos reporovados:")
+print("\nAlunos aprovados:")
 for matricula in matriculas:
     id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, aprovado_SN = matricula
     
-    print((nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))
+    print("ID: %s, Aluno: %s, Disciplina: %s, Professor: %s, Nota_N1: %s, Nota_N2: %s, Faltas: %s, Status: %s" % (id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))

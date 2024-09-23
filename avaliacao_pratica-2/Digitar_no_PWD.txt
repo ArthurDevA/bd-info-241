@@ -152,19 +152,6 @@ for matricula in matriculas:
 
 conn.commit()
 
-
-cursor.execute("""
-    SELECT A.nome_aluno, D.nome_disciplina, M.aprovado_SN
-    FROM TB_MATRICULA M
-    JOIN TB_ALUNO A ON M.id_aluno = A.id_aluno
-    JOIN TB_DISCIPLINA D ON M.id_disciplina = D.id_disciplina
-""")
-matriculas = cursor.fetchall()
-
-print()
-for matricula in matriculas:
-    print(matricula)
-
 cursor.close()
 conn.close()
 EOF
@@ -203,7 +190,7 @@ print("\nAlunos reporovados:")
 for matricula in matriculas:
     id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, aprovado_SN = matricula
     tipoR = tipoRerov(id_matricula, faltas)
-    print((nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))
+    print("ID: %s, Aluno: %s, Disciplina: %s, Professor: %s, Nota_N1: %s, Nota_N2: %s, Faltas: %s, Status: %s" % (id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))
 EOF
 
 cat << EOF > alunosAprovados.py
@@ -234,7 +221,7 @@ print("\nAlunos aprovados:")
 for matricula in matriculas:
     id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, aprovado_SN = matricula
     
-    print((nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))
+    print("ID: %s, Aluno: %s, Disciplina: %s, Professor: %s, Nota_N1: %s, Nota_N2: %s, Faltas: %s, Status: %s" % (id_matricula, nome_aluno, nome_disciplina, nome_professor, nota_N1, nota_N2, faltas, tipoR))
 EOF
 
 cat << EOF > quantidadeAlunosAprovados.py
