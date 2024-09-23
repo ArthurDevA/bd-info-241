@@ -134,7 +134,6 @@ cursor.executemany('INSERT INTO TB_PROFESSOR (nome_professor) VALUES (%s);', [
 
 cursor.executemany('INSERT INTO TB_MATRICULA (id_aluno, id_disciplina, id_professor, nota_N1, nota_N2, faltas) VALUES (%s, %s, %s, %s, %s, %s);', [
     (1, 1, 1, 8, 5, 15),
-    (1, 2, 2, 8, 5, 15),
     (2, 2, 2, 10, 10, 0),
     (3, 3, 3, 10, 2, 1),
     (4, 3, 3, 7, 0, 30)
