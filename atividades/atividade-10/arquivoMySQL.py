@@ -1,16 +1,29 @@
 import mysql.connector
+import time
 
 def ifPassarInDb(id_matricula, N1, N2, faltas, cursor):
     aprovado_sn = not ((faltas >= 20) or (((2*N1 + 3*N2) / 5) < 6))  # Define se o aluno passou ou não
     cursor.execute('UPDATE TB_MATRICULA SET aprovado_SN = %s WHERE id_matricula = %s;', ("APROVADO" if aprovado_sn else "REPROVADO", id_matricula))
 
 # Conexão com o banco de dados
-conn = mysql.connector.connect(
-  host="localhost",
-  user="myuser",
-  password="mypassword",
-  database="mydatabase"
-)
+i = 1
+while True:
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="myuser",
+            password="mypassword",
+            database="mydatabase"
+        )
+    except:
+        notInit = True
+        print("\r             ", end='')
+        print(f"\rCarregando{'.' * ((i % 3) + 1)}", end='')
+        i+=1
+        time.sleep(0.5)
+    else:
+        print("\nO servidor MySQL foi iniciado!")
+        break
 
 cursor = conn.cursor()
 
